@@ -28,11 +28,15 @@ class AppUtils {
   }
 
   emptyWidget() {
-    return  Center(
+    return
+      Container(
+        color: white,
+        height: SizerUtil.height,
+      child :Center(
       child: Image.asset(
         'images/cartisempty.png',
         width: 80.w,
-      )
+      ))
     );
   }
 

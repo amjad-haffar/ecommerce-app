@@ -28,63 +28,58 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       bottomNavigationBar:
          Container(
-          color: AppUtils().white,
           height: 9.h,
-          child: Container(
-            decoration: BoxDecoration(
+          decoration :BoxDecoration(
               color: AppUtils().white,
               boxShadow: AppUtils().shadow,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                NavigateButton(
-                  title: "Home",
-                  iconData: 'images/home.png',
-                  isActive: (currentIndex == 0) ? true : false,
-                  call: () {
-                    setState(() {
-                      currentIndex = 0;
-                    });
-                  },
-                ),
-                NavigateButton(
-                  title: "page",
-                  iconData: "images/icon1.png",
-                  isActive: (currentIndex == 1) ? true : false,
-                  call: () async {
-                    setState(() {
-                      currentIndex = 1;
-                    });
-                  },
-                ),
-                NavigateButton(
-                  title: "Cart",
-                  iconData: "images/cart.png",
-                  isActive: (currentIndex == 2) ? true : false,
-                  call: () {
-                    setState(() {
-                      currentIndex = 2;
-                    });
-                  },
-                ),
-                NavigateButton(
-                  title: "Profile",
-                  iconData: "images/profile.png",
-                  isActive: (currentIndex == 3) ? true : false,
-                  call: () {
-                    setState(() {
-                      currentIndex = 3;
-                    });
-                  },
-                ),
-              ],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              NavigateButton(
+                title: "Home",
+                iconData: 'images/home.png',
+                isActive: (currentIndex == 0) ? true : false,
+                call: () {
+                  setState(() {
+                    currentIndex = 0;
+                  });
+                },
+              ),
+              NavigateButton(
+                title: "page",
+                iconData: "images/icon1.png",
+                isActive: (currentIndex == 1) ? true : false,
+                call: () async {
+                  setState(() {
+                    currentIndex = 1;
+                  });
+                },
+              ),
+              NavigateButton(
+                title: "Cart",
+                iconData: "images/cart.png",
+                isActive: (currentIndex == 2) ? true : false,
+                call: () {
+                  setState(() {
+                    currentIndex = 2;
+                  });
+                },
+              ),
+              NavigateButton(
+                title: "Profile",
+                iconData: "images/profile.png",
+                isActive: (currentIndex == 3) ? true : false,
+                call: () {
+                  setState(() {
+                    currentIndex = 3;
+                  });
+                },
+              ),
+            ],
           ),
         ),
-      backgroundColor: AppUtils().white,
       body: pages[currentIndex],
-      extendBody: true,
     );
   }
 }

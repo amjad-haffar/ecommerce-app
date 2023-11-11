@@ -15,7 +15,9 @@ class CartPage extends StatelessWidget {
     return BlocBuilder<ControlCartBloc, ControlCartInitial>(
       builder: (context, state) {
         if (state.total == 0) {
-          return AppUtils().emptyWidget();
+          return Scaffold(
+              backgroundColor: AppUtils().white,
+              body :AppUtils().emptyWidget());
         } else {
           return Scaffold(
             backgroundColor: AppUtils().white,
