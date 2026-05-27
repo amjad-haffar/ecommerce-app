@@ -86,8 +86,6 @@ Used Sizer package for responsive layouts across different screen sizes.
 
 # Project Structure
 
-# Project Structure
-
 ```text
 lib/
 │
