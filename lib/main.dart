@@ -30,27 +30,25 @@ class MyApp extends StatelessWidget {
     return Sizer(builder: (context, orientation, deviceType) {
       return MultiBlocProvider(
         providers: [
-          
           BlocProvider(create: (context) => ControlCartBloc()),
           BlocProvider(
               create: (context) => HomeBloc(
-                  Repository(NetworkInfoImpl(InternetConnectionChecker())))..add(HomeInitalEvent())),
+                  Repository(NetworkInfoImpl(InternetConnectionChecker())))
+                ..add(HomeInitalEvent())),
         ],
-        // 
+        //
         child: GetMaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
               scaffoldBackgroundColor: const Color.fromARGB(255, 239, 239, 239),
               primarySwatch: Colors.blue,
-              backgroundColor: AppUtils().white,
               textTheme:
                   GoogleFonts.latoTextTheme(Theme.of(context).textTheme)),
-          home:
-              RepositoryProvider(
-                create:(context) =>
+          home: RepositoryProvider(
+            create: (context) =>
                 Repository(NetworkInfoImpl(InternetConnectionChecker())),
-                child: const MyHomePage(),
+            child: const MyHomePage(),
           ),
         ),
       );

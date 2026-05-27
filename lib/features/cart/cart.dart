@@ -8,7 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 class CartPage extends StatelessWidget {
-  CartPage({super.key});
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CartPage extends StatelessWidget {
         if (state.total == 0) {
           return Scaffold(
               backgroundColor: AppUtils().white,
-              body :AppUtils().emptyWidget());
+              body: AppUtils().emptyWidget());
         } else {
           return Scaffold(
             backgroundColor: AppUtils().white,

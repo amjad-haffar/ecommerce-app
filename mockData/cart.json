@@ -1,0 +1,30 @@
+{
+  "cart_myCart": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "quantity": 1,
+      "price": 59,
+      "category": "Electronics",
+      "image": "images/headphones.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Running Shoes",
+      "quantity": 2,
+      "price": 49,
+      "category": "Fashion",
+      "image": "images/shoes.jpg"
+    }
+  ],
+  "cart_MoreToLove": [
+    {
+      "id": 2,
+      "name": "Smart Watch",
+      "quantity": 1,
+      "price": 85,
+      "category": "Wearables",
+      "image": "images/watch.webp"
+    }
+  ]
+}

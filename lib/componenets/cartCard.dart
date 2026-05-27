@@ -1,4 +1,3 @@
-
 import 'package:ecommerce/componenets/datatText.dart';
 import 'package:ecommerce/componenets/quantity.dart';
 import 'package:ecommerce/features/cart/bloc/control_cart_bloc/control_cart_bloc.dart';
@@ -9,8 +8,26 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
 
 class CartCard extends StatelessWidget {
-  const CartCard({super.key,required this.product});
+  const CartCard({super.key, required this.product});
   final CartM product;
+  Widget imageWidget(String image) {
+    if (image.startsWith('http')) {
+      return Image.network(
+        image,
+        fit: BoxFit.contain,
+        width: 32.w,
+        height: 16.h,
+      );
+    }
+
+    return Image.asset(
+      image,
+      fit: BoxFit.contain,
+      width: 32.w,
+      height: 16.h,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,11 +49,8 @@ class CartCard extends StatelessWidget {
                       borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(8),
                           topRight: Radius.circular(8)),
-                      child: Image.network(
+                      child: imageWidget(
                         product.image,
-                        fit: BoxFit.contain,
-                        width: 32.w,
-                        height: 16.h,
                       )),
                   Column(
                     children: [
@@ -99,22 +113,23 @@ class CartCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     InkWell(
-                      onTap: () {
-                        final cartBloc =
-                            context.read<ControlCartBloc>();
-                        cartBloc.add(DeleteProduct(CartM(
-                            id: product.id,
-                            name: product.name,
-                            quantity: product.quantity,
-                            price: product.price,
-                            category: product.category,
-                            image: product.image)));
-                        AppUtils().showSnack(context,
-                            "Product Deleted from Cart",AppUtils().primary);
-                      },
-                      child: Image.asset('images/delete.png')),
+                        onTap: () {
+                          final cartBloc = context.read<ControlCartBloc>();
+                          cartBloc.add(DeleteProduct(CartM(
+                              id: product.id,
+                              name: product.name,
+                              quantity: product.quantity,
+                              price: product.price,
+                              category: product.category,
+                              image: product.image)));
+                          AppUtils().showSnack(context,
+                              "Product Deleted from Cart", AppUtils().primary);
+                        },
+                        child: Image.asset('images/delete.png')),
                     AppUtils().addVerBox(3.h),
-                    AddQuantityWidget(product: product,)
+                    AddQuantityWidget(
+                      product: product,
+                    )
                   ],
                 ),
               )

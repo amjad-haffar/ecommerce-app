@@ -1,0 +1,31 @@
+{
+  "Home_All": [
+    {
+      "id": 1,
+      "name": "Wireless Headphones",
+      "description": "Comfortable Bluetooth headphones with clear sound and long battery life.",
+      "old_price": 89,
+      "current_price": 59,
+      "category": "Electronics",
+      "image": "images/headphones.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Smart Watch",
+      "description": "Fitness tracking smartwatch with heart-rate monitoring and notifications.",
+      "old_price": 120,
+      "current_price": 85,
+      "category": "Wearables",
+      "image": "images/watch.webp"
+    },
+    {
+      "id": 3,
+      "name": "Running Shoes",
+      "description": "Lightweight running shoes designed for everyday comfort.",
+      "old_price": 75,
+      "current_price": 49,
+      "category": "Fashion",
+      "image": "images/shoes.jpg"
+    }
+  ]
+}
