@@ -7,8 +7,6 @@
 [![Equatable](https://img.shields.io/badge/equatable-2.0.5-red.svg)](https://pub.dev/packages/equatable)
 [![Dartz](https://img.shields.io/badge/dartz-0.10.1-green.svg)](https://pub.dev/packages/dartz)
 
-A Flutter-based e-commerce application developed as part of a technical assessment for a software engineering role.
-
 The project demonstrates mobile application architecture, API integration, state management, cart functionality, authentication flow, and responsive UI development using Flutter.
 ---
 
