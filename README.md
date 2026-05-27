@@ -25,18 +25,18 @@ The project demonstrates mobile application architecture, API integration, state
 # Screenshots
 
 ## Home Page
-<img width="1080" height="1920" alt="Screenshot_1779920597" src="https://github.com/user-attachments/assets/f4eb5793-9716-43cd-8aa2-fff9a0a970dc" />
+<img width="400" height="800" alt="Screenshot_1779920597" src="https://github.com/user-attachments/assets/f4eb5793-9716-43cd-8aa2-fff9a0a970dc" />
 
 
 ---
 
 ## Product Details
-<img width="1080" height="1920" alt="Screenshot_1779920702" src="https://github.com/user-attachments/assets/4843ed22-3009-4bf3-b35d-989b5e1918bb" />
+<img width="400" height="800" alt="Screenshot_1779920702" src="https://github.com/user-attachments/assets/4843ed22-3009-4bf3-b35d-989b5e1918bb" />
 
 ---
 
 ## Shopping Cart
-<img width="1080" height="1920" alt="Screenshot_1779920582" src="https://github.com/user-attachments/assets/03823002-69af-43af-a8a3-b4de215c3599" />
+<img width="400" height="800" alt="Screenshot_1779920582" src="https://github.com/user-attachments/assets/03823002-69af-43af-a8a3-b4de215c3599" />
 
 
 ---
