@@ -15,19 +15,19 @@ class ControlCartBloc extends Bloc<ControlCartEvent, ControlCartInitial> {
       ControlCartEvent event, Emitter<ControlBlocState> emit) async {
     if (event is AddProduct) {
       final updateCart = List<CartM>.from(state.cart);
-      double total = 0;
       int search =
           updateCart.indexWhere((element) => element.id == event.product.id);
-      for (var element in updateCart) {
-        total += (element.price) * element.quantity;
-      }
-      total += event.product.price;
       if (search == -1) {
         updateCart.add(event.product);
       } else {
-        updateCart[search].quantity += 1;
+        final currentProduct = updateCart[search];
+        updateCart[search] =
+            currentProduct.copyWith(quantity: currentProduct.quantity + 1);
       }
-      
+      final total = updateCart.fold<double>(
+        0,
+        (sum, item) => sum + item.price * item.quantity,
+      );
       emit(ControlCartInitial(cart: updateCart, total: total));
     }
   }
@@ -35,15 +35,14 @@ class ControlCartBloc extends Bloc<ControlCartEvent, ControlCartInitial> {
   Future<void> deleteEvent(
       ControlCartEvent event, Emitter<ControlCartInitial> emit) async {
     if (event is DeleteProduct) {
-      double total = 0;
       var updateCart = List<CartM>.from(state.cart);
-      for (var element in updateCart) {
-        total += (element.price) * element.quantity;
-      }
       updateCart.removeWhere(
         (element) => element.id == event.product.id,
       );
-      total -= (event.product.price * event.product.quantity);
+      final total = updateCart.fold<double>(
+        0,
+        (sum, item) => sum + item.price * item.quantity,
+      );
       emit(ControlCartInitial(cart: updateCart, total: total));
     }
   }
@@ -51,16 +50,24 @@ class ControlCartBloc extends Bloc<ControlCartEvent, ControlCartInitial> {
   Future<void> lowerQuantityByOne(
       ControlCartEvent event, Emitter<ControlCartInitial> emit) async {
     if (event is LowerQuantity) {
-      double total = 0;
       var updateCart = List<CartM>.from(state.cart);
-      for (var element in updateCart) {
-        total += (element.price) * element.quantity;
-      }
       int search = updateCart.indexWhere(
         (element) => element.id == event.product.id,
       );
-      updateCart[search].quantity -= 1;
-      total -= event.product.price;
+      if (search == -1) return;
+      final currentProduct = updateCart[search];
+
+      if (currentProduct.quantity <= 1) {
+        updateCart.removeAt(search);
+      } else {
+        updateCart[search] = currentProduct.copyWith(
+          quantity: currentProduct.quantity - 1,
+        );
+      }
+      final total = updateCart.fold<double>(
+        0,
+        (sum, item) => sum + item.price * item.quantity,
+      );
 
       emit(ControlCartInitial(cart: updateCart, total: total));
     }
